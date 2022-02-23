@@ -1,0 +1,24 @@
+{
+    "extends": ["config:base"],
+    "automerge": true,
+    "minor": {
+      "automerge": false
+    },
+    "major": {
+      "automerge": false
+    },
+    "lockFileMaintenance": {
+      "enabled": false,
+      "automerge": false
+    },
+    "node": {
+      "supportPolicy": ["lts_active"]
+    },
+    "ignoreDeps": ["tailwindcss", "postcss", "@tailwindcss/postcss7-compat", "autoprefixer"],
+    "labels": ["renovate"],
+    "rangeStrategy": "bump",
+    "bumpVersion": null,
+    "semanticCommits": true,
+    "timezone": "Asia/Kolkata",
+    "schedule": "on tuesday and wednesday"
+}
