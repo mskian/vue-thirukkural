@@ -7,6 +7,7 @@
           name="match"
           class="w-15 text-center rounded-l-lg p-0 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
           placeholder="Enter No 0 to 1329"
+          autocomplete="off"
           required
         />
         <button
@@ -119,7 +120,7 @@ export default {
       this.loading = true;
       if (this.$route.query.match) {
         axios
-          .get("https://img.sanweb.info/kural/" + this.$route.query.match)
+          .get("https://thirukkural.up.railway.app/" + this.$route.query.match)
           .then((response) => {
             this.results = response.data;
             this.loading = false;
@@ -127,7 +128,7 @@ export default {
             document.querySelector(".Getview").style.display = "none";
           });
       } else {
-        axios.get("https://img.sanweb.info/kural/").then((response) => {
+        axios.get("https://thirukkural.up.railway.app/").then((response) => {
           this.results = response.data;
           this.loading = false;
           this.code = response.data.Line1 + "\n" + response.data.Line2;
