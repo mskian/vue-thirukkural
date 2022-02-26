@@ -6,7 +6,7 @@
           id="match"
           name="match"
           class="w-15 text-center rounded-l-lg p-0 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
-          placeholder="Enter No 0 to 1329"
+          placeholder="Enter No 1 to 1330"
           autocomplete="off"
           required
         />
@@ -16,6 +16,12 @@
           Get Kural
         </button>
       </form>
+      <button
+        class="Gethome bg-green-400 text-black font-medium py-2 px-4 rounded-full mt-4"
+        @click.prevent="getResult"
+      >
+        {{ loading ? "🔄 Updating Kural" : "🔄 Next Kural" }}
+      </button>
       <div
         class="dark:bg-pink-200 dark:border-pink-200 bg-white rounded-2xl border shadow-xl p-10 max-w-lg mt-6"
       >
@@ -29,7 +35,7 @@
           <button
             v-if="supportsCB"
             @click="copy"
-            class="bg-purple-500 text-white font-bold py-1 px-3 border-b-4 border-purple-700 rounded"
+            class="bg-purple-500 text-white font-bold py-2 px-4 rounded-full mt-4"
           >
             {{ loading ? "📝 Loading" : "📝 Copy Kural" }}
           </button>
@@ -126,6 +132,7 @@ export default {
             this.loading = false;
             this.code = response.data.Line1 + "\n" + response.data.Line2;
             document.querySelector(".Getview").style.display = "none";
+            document.querySelector(".Gethome").style.display = "none";
           });
       } else {
         axios.get("https://thirukkural.up.railway.app/").then((response) => {
